@@ -4,8 +4,8 @@
             [libpython-clj.require :refer [require-python]]
             [libpython-clj.python :refer [py.. get-item]]))
 
-(require-python '[builtins])
-(require-python '[pydub.playback])
+(require-python '[builtins]
+                '[pydub.playback])
 
 (defn play
   "Plays audio segment"

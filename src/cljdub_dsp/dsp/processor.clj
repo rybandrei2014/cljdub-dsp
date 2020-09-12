@@ -17,8 +17,7 @@
                               :or {sequenceMs 82
                                    seekWindowMs 28
                                    overlapMs 12}}]
-  (!nil?->
-   param
+  (if (some? param)
    (or (param
         {:music
          (WaveformSimilarityBasedOverlapAdd$Parameters/musicDefaults

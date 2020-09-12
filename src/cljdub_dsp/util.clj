@@ -34,26 +34,13 @@
   ([value & values]
    (concat (wrap-vec value) (apply wrap-vec values))))
 
-(defn !nil?->
-  "If not nil then else helper function, that works as follows:
-
-  (!nil?-> nil 1 2) -> 2
-  (!nil?-> nil 1) -> nil
-  (!nil?-> 1 2 3) -> 2
-  (!nil?-> 1 2) -> 2"
-  ([value true-body]
-   (if (every? some? (wrap-vec value)) true-body))
-  ([value true-body false-body]
-   (if (every? some? (wrap-vec value)) true-body false-body)))
-
-(defmacro doto-when
-  [this func val]
-  `(when-let [unwraped-val# ~val]
-     (~func ~this unwraped-val#)))
-
 (defmacro doto-for
-  ([this func values]
-   `(doseq [elem# ~values]
-      (~func ~this elem#)))
-  ([this func value & rest]
-   `(doto-for ~this ~func (list ~value ~@rest))))
+  "Macro that works similar to doto, but simply apply single function f through on provided values thus mutating input object (this). For example: (doto-for (new java.util.ArrayList) .add 1 2 3) does following [].add(1).add(2).add(3) => [1 2 3]"
+  ([this f vals]
+   (let [res (gensym)]
+     `(let [~res ~this]
+        ~@(for [val vals]
+            `(~f ~res ~val))
+        ~res)))
+  ([this f val & rest]
+   `(doto-for ~this ~f ~(cons val rest))))

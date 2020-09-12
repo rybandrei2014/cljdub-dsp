@@ -6,8 +6,8 @@
             [cljdub-dsp.prop :refer [frame-rate]]))
 
 ;; require python modules
-(require-python '[pydub.scipy_effects])
-(require-python '[pydub.silence :refer [split_on_silence]])
+(require-python '[pydub.scipy_effects]
+                '[pydub.silence :refer [split_on_silence]])
 
 (defn invert-phase
   "invert the phase of the signal
