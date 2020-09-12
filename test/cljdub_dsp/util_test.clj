@@ -26,9 +26,6 @@
                   (= (numpy->bytes numpy-arr)
                      byte-string))))
 
-(= (vec (py.. (np/array [0 1 127 128 255] :dtype np/uint8) (astype np/int8)))
-   (vec (bytes->numpy (bins/bytes [0 1 127 128 255]))))
-
 (defspec bytes->numpy-test
   100
   (prop/for-all [bs (gen/bind (nat-range 2 300)
