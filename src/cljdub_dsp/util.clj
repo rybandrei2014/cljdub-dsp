@@ -39,8 +39,8 @@
   ([this f vals]
    (let [res (gensym)]
      `(let [~res ~this]
-        ~@(for [val vals]
-            `(~f ~res ~val))
+        (doseq [val# ~vals]
+            (~f ~res val#))
         ~res)))
   ([this f val & rest]
    `(doto-for ~this ~f ~(cons val rest))))

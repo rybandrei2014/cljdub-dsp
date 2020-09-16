@@ -13,3 +13,11 @@
 - redundant !nil?->, doto-when from util namespace
 ### Changed
 - better implementation for doto-for macro
+
+## 1.1.1
+### Removed
+- redundant code from util_test
+
+## 1.1.2
+### Changed
+- HOTFIX: implementation of doto-for macro
