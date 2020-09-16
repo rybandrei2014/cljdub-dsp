@@ -27,3 +27,7 @@
 - HOTFIX: implementation of doto-for macro
 - HOTFIX: pre condition for ->ChunkedBufferWriter
 - small refactor of example/main.clj
+
+## 1.2.0
+### Added
+- unit tests for prop, io, operation, effect namespaces
