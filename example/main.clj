@@ -1,14 +1,14 @@
 ;; require namespaces to work with pydub
-(require '[cljdub-dsp.io :refer :all])
-(require '[cljdub-dsp.prop :refer :all])
-(require '[cljdub-dsp.operation :refer :all])
-(require '[cljdub-dsp.effect :refer :all])
-(require '[cljdub-dsp.util :refer :all])
-;; require namespaces for interop between pydub and TarsosDSP libs
-(require '[cljdub-dsp.dsp.interop :refer :all])
-(require '[cljdub-dsp.dsp.model :refer :all])
-(require '[cljdub-dsp.dsp.processor :refer :all])
-(require '[cljdub-dsp.dsp.pitch :refer :all])
+(require '[cljdub-dsp.io :refer :all]
+         '[cljdub-dsp.prop :refer :all]
+         '[cljdub-dsp.operation :refer :all]
+         '[cljdub-dsp.effect :refer :all]
+         '[cljdub-dsp.util :refer :all]
+         ;; require namespaces for interop between pydub and TarsosDSP libs
+         '[cljdub-dsp.dsp.interop :refer :all]
+         '[cljdub-dsp.dsp.model :refer :all]
+         '[cljdub-dsp.dsp.processor :refer :all]
+         '[cljdub-dsp.dsp.pitch :refer :all])
 
 (comment
   ;; convert stereo mp3 file to stereo wav file

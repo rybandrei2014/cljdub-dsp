@@ -43,4 +43,4 @@
             (~f ~res val#))
         ~res)))
   ([this f val & rest]
-   `(doto-for ~this ~f ~(cons val rest))))
+   `(doto-for ~this ~f (list ~val ~@rest))))

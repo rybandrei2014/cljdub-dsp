@@ -21,3 +21,9 @@
 ## 1.1.2
 ### Changed
 - HOTFIX: implementation of doto-for macro
+
+## 1.1.3
+### Changed
+- HOTFIX: implementation of doto-for macro
+- HOTFIX: pre condition for ->ChunkedBufferWriter
+- small refactor of example/main.clj

@@ -45,7 +45,7 @@
   "Audio processor that fills byte container (must be containter with extendable length, for example - list) with bytes from processing pipeline"
   [jvm-list-container offset]
   {:pre [(int? offset)
-         (>= 0 offset)]}
+         (>= offset 0)]}
   (ChunkedBufferWriter. jvm-list-container (atom offset)))
 
 (defrecord AudioDispatcherWrapper
