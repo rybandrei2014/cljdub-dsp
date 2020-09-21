@@ -6,7 +6,7 @@
   :dependencies [[org.clojure/clojure "1.10.1"]
                  [clj-python/libpython-clj "1.46"]
                  [techascent/tech.datatype "5.0"]
-                 [com.github.st-h/TarsosDSP "2.4.1"]]
+                 [com.github.dragoon000320/tarsosdsp "1.0"]]
   :resource-paths ["lib/TarsosTranscoder-1.2.jar"]
   :plugins [[lein-cloverage "1.0.13"]
             [lein-shell "0.5.0"]

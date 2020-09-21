@@ -45,10 +45,11 @@
                              (or (:buffer-overlap opts) 0)
                              (or (:context opts) {}))]
      (doto (:dispatcher dispatcher-wrapper)
+       (.setZeroPadLastBuffer false)
        (doto-for .addAudioProcessor
                  (flatten (map #(% dispatcher-wrapper)
                                (wrap-vec processor buffer-writer))))
-       (.run))
+       .run)
      (result-fn dispatcher-wrapper jvm-list seg)))
   ([seg opts result-fn processor & processors]
    (apply-processors-gen seg opts result-fn
