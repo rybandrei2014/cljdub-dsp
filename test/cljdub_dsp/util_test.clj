@@ -10,16 +10,12 @@
 (require-python '[numpy :as np]
                 '[builtins :as bins])
 
-(defn nat-range
-  [from to]
-  (gen/such-that #(and (<= % to) (>= % from)) gen/nat))
-
 (def uint8-gen
-  (nat-range 0 255))
+  (gen/choose 0 255))
 
 (defspec numpy->bytes-test
   100
-  (prop/for-all [bs (gen/bind (nat-range 2 300)
+  (prop/for-all [bs (gen/bind (gen/choose 2 300)
                               #(gen/vector uint8-gen %))]
                 (let [numpy-arr (np/array bs :dtype np/uint8)
                       byte-string (bins/bytes bs)]
@@ -28,7 +24,7 @@
 
 (defspec bytes->numpy-test
   100
-  (prop/for-all [bs (gen/bind (nat-range 2 300)
+  (prop/for-all [bs (gen/bind (gen/choose 2 300)
                               #(gen/vector uint8-gen %))]
                 (let [numpy-arr (py.. (np/array bs :dtype np/uint8)
                                       (astype np/int8))
@@ -38,7 +34,7 @@
 
 (defspec empty-byte-numpy-test
   100
-  (prop/for-all [size (nat-range 2 300)]
+  (prop/for-all [size (gen/choose 2 300)]
                 (let [numpy-arr (empty-byte-numpy size)]
                   (and (= np/int8 (py.. numpy-arr -dtype))
                        (= (bins/len numpy-arr) size)))))
