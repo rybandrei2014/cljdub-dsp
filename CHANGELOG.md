@@ -31,3 +31,11 @@
 ## 1.2.0
 ### Added
 - unit tests for prop, io, operation, effect namespaces
+
+## 1.3.0
+### Changed
+- use other fork of TarsosDSP library - com.github.dragoon000320/tarsosdsp
+- fixed tests for util namespace - util_test.clj
+- disable zeroPadLastBuffer on AudioDispatcher in apply-processors-gen
+### Added
+- tests for dsp.model and dsp.interop namespaces
