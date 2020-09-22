@@ -13,13 +13,10 @@ pip3 install -r requirements.txt
 ```
 
 * add dependency to the project.clj
-```clj
-[dragoon/cljdub-dsp]
-```
 
 ## Usage
 
-Code snippets about library usage are provided in **examples** folder
+Code snippets about library usage are provided in **example** folder
 
 ## Contributions
 
