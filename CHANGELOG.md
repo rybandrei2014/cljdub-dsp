@@ -39,3 +39,7 @@
 - disable zeroPadLastBuffer on AudioDispatcher in apply-processors-gen
 ### Added
 - tests for dsp.model and dsp.interop namespaces
+
+## 1.4.0
+### Added
+- tests for dsp.result and dsp.processor namespaces

@@ -1,4 +1,4 @@
-(defproject dragoon/cljdub-dsp "1.3.0"
+(defproject dragoon/cljdub-dsp "1.4.0"
   :description "Sound processing library that allows usage of pydub library's functionality in Clojure as well as provides interface for interaction between pydub and TarsosDSP libraries"
   :url "https://github.com/dragoon000320/cljdub-dsp"
   :license {:name "Eclipse Public License 2.0"
