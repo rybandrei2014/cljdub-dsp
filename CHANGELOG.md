@@ -43,3 +43,8 @@
 ## 1.4.0
 ### Added
 - tests for dsp.result and dsp.processor namespaces
+
+## 1.4.1
+### Changed
+- reference TarsosTranscoder fork from maven central instead of local .jar
+- fixed .gitignore to ignore calva related files
