@@ -1,7 +1,7 @@
 (ns cljdub-dsp.prop-test
   (:require [clojure.test :refer :all]
             [cljdub-dsp.prop :refer :all]
-            [cljdub-dsp.io :refer [from-byte-string]]
+            [cljdub-dsp.io :refer [from-bytes]]
             [libpython-clj.require :refer [require-python]]))
 
 (require-python '[builtins :as bins])
@@ -17,9 +17,10 @@
 
 (defn test-seg
   []
-  (-> audio-data bins/bytes (from-byte-string audio-sample-width
-                                              audio-frame-rate
-                                              audio-channels)))
+  (from-bytes audio-data
+              :sample-width audio-sample-width
+              :sample-rate audio-frame-rate
+              :channels audio-channels))
 
 (def test-seg-props
   {:max-possible-amp 32768.0,

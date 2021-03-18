@@ -6,6 +6,7 @@
   (:import (be.tarsos.transcoder Transcoder DefaultAttributes)))
 
 (require-python '[pydub :bind-ns])
+(require-python '[builtins :as bins])
 
 (defn silent-seg
   "Creates a silent audiosegment, which can be used as a placeholder,
@@ -18,11 +19,20 @@
 
 (defn from-byte-string
   "Creates AudioSegment from python byte string"
-  [byte-string sample-width sample-rate channels]
+  [byte-string & {:keys [sample-width sample-rate channels]}]
   (py.. pydub (**AudioSegment byte-string
                               {:sample_width sample-width
                                :frame_rate sample-rate
                                :channels channels})))
+
+(defn from-bytes
+  "Creates new AudioSegment from array of uint8 (unsigned bytes)"
+  [bytes & {:keys [sample-width sample-rate channels]}]
+  (-> bytes
+      bins/bytes
+      (from-byte-string :sample-width sample-width
+                        :sample-rate sample-rate
+                        :channels channels)))
 
 (defn from-mono-segs
   "Creates new AudioSegment from several mono AudioSegments"

@@ -48,3 +48,11 @@
 ### Changed
 - reference TarsosTranscoder fork from maven central instead of local .jar
 - fixed .gitignore to ignore calva related files
+
+## 1.4.2
+### Added
+- from-bytes - create AudioSegment from bytes (array of uint8)
+### Changed
+- small refactor of from-byte-string to accept keyed args
+- small refactor of tests
+- fixed tests in io-test and prop-test namespaces
